@@ -12,7 +12,7 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const isDev = nodeEnv === 'development';
 
 // Disable CSSModules here
-const CSSModules = true;
+const CSSModules = false;
 // Enable build process terminated while there's an eslint error
 const eslint = false;
 // Enable build process terminated while there's a stylelint error

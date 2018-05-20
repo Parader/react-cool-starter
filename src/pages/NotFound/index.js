@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import Helmet from 'react-helmet';
 
-import styles from './styles.scss';
-
 export default class staticContext extends PureComponent {
   constructor() {
     super();
@@ -18,7 +16,7 @@ export default class staticContext extends PureComponent {
     }
 
     return (
-      <div className={styles.NotFound}>
+      <div className="NotFound">
         <Helmet title="Oops" />
         <p>{this.message}</p>
       </div>
