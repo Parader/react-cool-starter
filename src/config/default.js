@@ -3,12 +3,12 @@ module.exports = {
   port: process.env.PORT,
   app: {
     htmlAttributes: { lang: 'en' },
-    title: 'TP Caravan - Dérick Paradis',
-    titleTemplate: 'TP Caravan - %s',
+    title: 'React Webpack Boilerplate',
+    titleTemplate: 'Site - %s',
     meta: [
       {
         name: 'description',
-        content: 'Caravan.coop TP by Dérick Paradis'
+        content: 'React webpack Boilerplate'
       }
     ]
   }

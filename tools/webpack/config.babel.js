@@ -12,7 +12,7 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const isDev = nodeEnv === 'development';
 
 // Disable CSSModules here
-const CSSModules = true;
+const CSSModules = false;
 // Enable build process terminated while there's an eslint error
 const eslint = false;
 // Enable build process terminated while there's a stylelint error
@@ -48,7 +48,7 @@ const getPlugins = () => {
 
   if (isDev) {
     // Development
-    plugins.push(new webpack.HotModuleReplacementPlugin());
+
   } else {
     plugins.push(
       // Production
@@ -80,7 +80,7 @@ const getPlugins = () => {
 // Setup the entry for development/prodcution
 const getEntry = () => {
   // Development
-  let entry = ['webpack-hot-middleware/client?reload=true', './src/client.js'];
+  let entry = ['./src/client.js'];
 
   // Prodcution
   if (!isDev) entry = ['./src/client.js'];
@@ -131,7 +131,6 @@ module.exports = {
             ['@babel/preset-stage-0', { decoratorsLegacy: true }]
           ],
           plugins: [
-            'react-hot-loader/babel',
             'loadable-components/babel',
             'lodash'
           ],

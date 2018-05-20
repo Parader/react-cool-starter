@@ -16,6 +16,12 @@ exports[`<App /> renders 1`] = `
       TP Caravan - Dérick Paradis
     </h1>
   </div>
-  <hr />
+  <div
+    className="Loading"
+  >
+    <p>
+      Loading...
+    </p>
+  </div>
 </div>
 `;

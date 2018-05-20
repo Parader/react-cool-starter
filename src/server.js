@@ -51,17 +51,11 @@ if (!__DEV__) {
     require('webpack-dev-middleware')(compiler, {
       publicPath: webpackConfig.output.publicPath,
       headers: { 'Access-Control-Allow-Origin': '*' },
-      hot: true,
+      hot: false,
       quiet: true, // Turn it on for friendly-errors-webpack-plugin
       noInfo: true,
       stats: 'minimal',
       serverSideRender: true
-    })
-  );
-
-  app.use(
-    require('webpack-hot-middleware')(compiler, {
-      log: false // Turn it off for friendly-errors-webpack-plugin
     })
   );
 }
@@ -152,9 +146,6 @@ if (port) {
     if (err) console.error(chalk.red(`==> 😭  OMG!!! ${err}`));
 
     console.info(chalk.green(`==> 🌎  Listening at ${url}`));
-
-    // Open Chrome
-    require('../tools/openBrowser')(url);
   });
 } else {
   console.error(

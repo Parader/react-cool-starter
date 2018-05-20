@@ -22,18 +22,5 @@ export default (history, initialState = {}) => {
   );
   const store = createStore(rootReducer, initialState, enhancers);
 
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      try {
-        const nextReducer = require('../reducers').default;
-
-        store.replaceReducer(nextReducer);
-      } catch (error) {
-        console.error(`==> 😭  Reducer hot reloading error ${error}`);
-      }
-    });
-  }
-
   return store;
 };

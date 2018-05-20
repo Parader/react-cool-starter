@@ -1,6 +1,5 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'react-router-redux';
@@ -17,13 +16,11 @@ const store = configureStore(history, initialState);
 
 const render = Routes => {
   hydrate(
-    <AppContainer>
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          {renderRoutes(Routes)}
-        </ConnectedRouter>
-      </Provider>
-    </AppContainer>,
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        {renderRoutes(Routes)}
+      </ConnectedRouter>
+    </Provider>,
     document.getElementById('react-view')
   );
 };
@@ -32,16 +29,3 @@ const render = Routes => {
 loadComponents().then(() => {
   render(routes);
 });
-
-if (module.hot) {
-  // Enable webpack hot module replacement for routes
-  module.hot.accept('./routes', () => {
-    try {
-      const nextRoutes = require('./routes').default;
-
-      render(nextRoutes);
-    } catch (error) {
-      console.error(`==> 😭  Routes hot reloading error ${error}`);
-    }
-  });
-}
